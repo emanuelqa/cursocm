@@ -27,9 +27,9 @@ import com.emanuel.cursocm.repositories.ClienteRepository;
 import com.emanuel.cursocm.repositories.EnderecoRepository;
 import com.emanuel.cursocm.repositories.EstadoRepository;
 import com.emanuel.cursocm.repositories.ItemPedidoRepository;
+import com.emanuel.cursocm.repositories.PagamentoRepository;
+import com.emanuel.cursocm.repositories.PedidoRepository;
 import com.emanuel.cursocm.repositories.ProdutoRepository;
-import com.emanuel.cursocm.resources.PagamentoRepository;
-import com.emanuel.cursocm.resources.PedidoRepository;
 
 @SpringBootApplication
 public class CursocmApplication implements CommandLineRunner {
@@ -66,7 +66,7 @@ public class CursocmApplication implements CommandLineRunner {
 		
 		Produto p1 = new Produto(null, "Teclado", 48.50);
 		Produto p2 = new Produto(null, "Cadeira", 150.00);
-		Produto p3 = new Produto(null, "Mouse", 20.79);
+		Produto p3 = new Produto(null, "Mouse", 20.00);
 		
 		cat1.setProdutos(Arrays.asList(p1, p3));
 		cat2.setProdutos(Arrays.asList(p2));
@@ -121,9 +121,9 @@ public class CursocmApplication implements CommandLineRunner {
 		pedidoRepository.saveAll(Arrays.asList(pedido1,pedido2));
 		pagamentoRepository.saveAll(Arrays.asList(pag1,pag2));
 		
-		ItemPedido ip1 = new ItemPedido(pedido1, p1, 0.00, 1, 100.00);
+		ItemPedido ip1 = new ItemPedido(pedido1, p1, 0.00, 1, 48.50);
 		ItemPedido ip2 = new ItemPedido(pedido2, p2, 2.00, 2, 200.00);
-		ItemPedido ip3 = new ItemPedido(pedido1, p3, 3.00, 3, 300.00);
+		ItemPedido ip3 = new ItemPedido(pedido1, p3, 3.00, 3, 60.00);
 		
 		pedido1.getItens().addAll(Arrays.asList(ip1, ip3));
 		pedido2.getItens().addAll(Arrays.asList(ip2));
