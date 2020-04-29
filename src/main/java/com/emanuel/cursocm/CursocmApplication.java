@@ -63,6 +63,14 @@ public class CursocmApplication implements CommandLineRunner {
 
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
+		Categoria cat3 = new Categoria(null, "ACategoria");
+		Categoria cat4 = new Categoria(null, "BCategoria");
+		Categoria cat5 = new Categoria(null, "CCategoria3");
+		Categoria cat6 = new Categoria(null, "DCategoria3");
+		Categoria cat7 = new Categoria(null, "ECategoria3");
+		Categoria cat8 = new Categoria(null, "FCategoria3");
+		Categoria cat9 = new Categoria(null, "GCategoria3");
+		Categoria cat10 = new Categoria(null, "HCategoria3");
 		
 		Produto p1 = new Produto(null, "Teclado", 48.50);
 		Produto p2 = new Produto(null, "Cadeira", 150.00);
@@ -75,7 +83,7 @@ public class CursocmApplication implements CommandLineRunner {
 		p2.setCategorias(Arrays.asList(cat2));
 		p3.setCategorias(Arrays.asList(cat1));
 		
-		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2,cat3, cat4, cat5,cat6, cat7, cat8,cat9, cat10));
 		produtoRepository.saveAll(Arrays.asList(p1, p2 ,p3));
 		
 		Estado estado1 = new Estado(null, "Paraíba");
