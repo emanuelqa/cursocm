@@ -72,9 +72,9 @@ public class CursocmApplication implements CommandLineRunner {
 		Categoria cat9 = new Categoria(null, "GCategoria3");
 		Categoria cat10 = new Categoria(null, "HCategoria3");
 		
-		Produto p1 = new Produto(null, "Teclado", 48.50);
+		Produto p1 = new Produto(null, "Tecladoz", 48.50);
 		Produto p2 = new Produto(null, "Cadeira", 150.00);
-		Produto p3 = new Produto(null, "Mouse", 20.00);
+		Produto p3 = new Produto(null, "Mousez", 20.00);
 		
 		cat1.setProdutos(Arrays.asList(p1, p3));
 		cat2.setProdutos(Arrays.asList(p2));
