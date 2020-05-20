@@ -18,18 +18,10 @@ public enum EstadoPagamento {
 		return cod;
 	}
 
-	public void setCod(Integer cod) {
-		this.cod = cod;
-	}
-
 	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
 	public static EstadoPagamento toEnum(Integer cod) {
 		if(cod == null) {
 			return null;
