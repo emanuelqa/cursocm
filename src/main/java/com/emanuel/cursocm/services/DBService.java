@@ -20,6 +20,7 @@ import com.emanuel.cursocm.domain.PagamentoComCartao;
 import com.emanuel.cursocm.domain.Pedido;
 import com.emanuel.cursocm.domain.Produto;
 import com.emanuel.cursocm.enuns.EstadoPagamento;
+import com.emanuel.cursocm.enuns.Perfil;
 import com.emanuel.cursocm.enuns.TipoCliente;
 import com.emanuel.cursocm.repositories.CategoriaRepository;
 import com.emanuel.cursocm.repositories.CidadeRepository;
@@ -97,17 +98,23 @@ public class DBService {
 		
 		Cliente cliente1 = new Cliente(null, "ze", "ze@gmail.com", "123456789", TipoCliente.PESSOAFISICA, bCrypt.encode("teste"));
 		Cliente cliente2 = new Cliente(null, "ju", "ju@gmail.com", "987654321", TipoCliente.PESSOAFISICA, bCrypt.encode("teste"));
+		Cliente cliente3 = new Cliente(null, "ju", "cliente3@gmail.com", "987654321", TipoCliente.PESSOAFISICA, bCrypt.encode("teste"));
+		
+		cliente3.addPerfil(Perfil.ADMIN);
 		
 		cliente1.getTelefones().addAll(Arrays.asList("88888888","55555555"));
 		cliente2.getTelefones().addAll(Arrays.asList("44444444"));
+		cliente3.getTelefones().addAll(Arrays.asList("44444444"));
 		
 		Endereco endereco1 = new Endereco(null, "rua", "654", "xica", "bancarios", "58055000", cidade1);
+		Endereco endereco3 = new Endereco(null, "rua", "654", "xica", "bancarios", "58055000", cidade3);
 		
 		endereco1.setCliente(cliente1);
+		endereco3.setCliente(cliente3);
 		
-		clienteRepository.saveAll(Arrays.asList(cliente1, cliente2));
+		clienteRepository.saveAll(Arrays.asList(cliente1, cliente2, cliente3));
 		
-		enderecoRepository.saveAll(Arrays.asList(endereco1));
+		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco3));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy HH:mm");
 		
