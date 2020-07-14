@@ -127,7 +127,8 @@ public class DBService {
 		Pagamento pag2 = new PagamentoComCartao(null, EstadoPagamento.QUITADO, pedido2, 6);
 		pedido2.setPagamento(pag2);
 		
-		cliente1.getPedidos().addAll(Arrays.asList(pedido1,pedido2));
+		cliente1.getPedidos().addAll(Arrays.asList(pedido1));
+		cliente2.getPedidos().addAll(Arrays.asList(pedido2));
 		
 		pedidoRepository.saveAll(Arrays.asList(pedido1,pedido2));
 		pagamentoRepository.saveAll(Arrays.asList(pag1,pag2));
