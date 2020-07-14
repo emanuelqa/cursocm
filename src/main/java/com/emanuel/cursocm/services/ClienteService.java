@@ -17,9 +17,12 @@ import com.emanuel.cursocm.domain.Cliente;
 import com.emanuel.cursocm.domain.Endereco;
 import com.emanuel.cursocm.dto.ClienteDTO;
 import com.emanuel.cursocm.dto.ClienteNewDTO;
+import com.emanuel.cursocm.enuns.Perfil;
 import com.emanuel.cursocm.enuns.TipoCliente;
 import com.emanuel.cursocm.repositories.ClienteRepository;
 import com.emanuel.cursocm.repositories.EnderecoRepository;
+import com.emanuel.cursocm.security.UserSpringSecurity;
+import com.emanuel.cursocm.services.exceptions.AuthorizationException;
 import com.emanuel.cursocm.services.exceptions.DataIntegrityException;
 
 @Service
@@ -35,6 +38,13 @@ public class ClienteService {
 	private EnderecoRepository enderecoRepository;
 	
 	public Cliente find(Integer id) {
+		
+		UserSpringSecurity user = UserService.authenticated();
+		
+		if(user==null || !user.hasHole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado!");
+		}
+		
 		Optional<Cliente> cliente = repo.findById(id);
 		return cliente.orElse(null);
 	}
